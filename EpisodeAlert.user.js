@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         BS Check
 // @namespace    http://tampermonkey.net/
-// @version      1.6
+// @version      1.7
 // @description  Desktopbenachrichtigung bei neuer Folge
 // @author       jonnyy / High_village
 // @match        https://bs.to/home
@@ -33,6 +33,11 @@ var l = {
     // Your code here...
 })();
 
+function start(doc){
+    //prepares list from document
+    new Notification("testnotification",{icon:"https://bs.to/favicon.ico"});
+    check(prepstrlist(doc));
+}
 function check(serieslist){
     console.log("check");
     get("https://bs.to/home",null,function checknew(e){
